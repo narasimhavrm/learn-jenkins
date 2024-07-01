@@ -16,13 +16,14 @@ pipeline {
         stage('Hello-01') {
             steps {
                 echo 'Hello 001'
+                sh 'echo input var is $INPUT_VAR'
 //                 sh 'env'
             }
         }
     }
     post {
       always {
-        sh 'inputvar is $INPUT_VAR'
+        sh 'echo Post action $INPUT_VAR'
     }
     }
 }
