@@ -8,6 +8,8 @@ pipeline {
       ansiColor('xterm')
     }
 
+    triggers { pollSCM('H/2 * * * *') }
+
     parameters {
       string(name: 'INPUT_VAR', defaultValue: 'IaminputVAR', description: 'Just input variable')
     }
