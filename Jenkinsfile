@@ -1,7 +1,8 @@
 pipeline {
     agent { node { label 'workstation' } }
     environment {
-      SSH_CREDS = credentials('SSH')
+      SSHCRED = credentials('SSH')
+      DEMO_URL = "google.com"
     }
     options {
       ansiColor('xterm')
@@ -12,17 +13,17 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        stage('Hello-01') {
             steps {
-                echo 'Hello World'
-                sh 'SSH_CREDS'
+                echo 'Hello 001'
+                sh 'env'
             }
         }
     }
     post {
       always {
         sh 'I am doing post action - inputvar is $INPUT_VAR'
-        sh 'SSH Creds are SSH_CREDS'
+        sh 'env'
 
     }
     }
