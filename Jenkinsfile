@@ -23,7 +23,6 @@ pipeline {
     post {
       always {
         sh 'I am doing post action - inputvar is $INPUT_VAR'
-        sh 'env'
 
     }
     }
