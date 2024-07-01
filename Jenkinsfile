@@ -26,6 +26,12 @@ pipeline {
                 sh 'env'
             }
         }
+        stage('Example Deploy') {
+                    when {
+                        branch 'production'
+                    }
+        }
+
     }
     post {
       always {
