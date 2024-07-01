@@ -16,6 +16,10 @@ pipeline {
 
     stages {
         stage('Hello-01') {
+            input {
+              message "Should we continue?"
+              ok "Yes, we should."
+            }
             steps {
                 echo 'Hello 001'
                 sh 'echo input var is $INPUT_VAR'
