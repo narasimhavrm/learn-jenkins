@@ -1,11 +1,14 @@
 pipeline {
     agent { node { label 'workstation' } }
     environment {
-            SSH_CREDS = credentials('SSH')
-        }
+      SSH_CREDS = credentials('SSH')
+    }
+    options {
+      ansiColor('xterm')
+    }
 
     parameters {
-            string(name: 'INPUT_VAR', defaultValue: 'IaminputVAR', description: 'Just input variable')
+      string(name: 'INPUT_VAR', defaultValue: 'IaminputVAR', description: 'Just input variable')
     }
 
     stages {
@@ -18,8 +21,8 @@ pipeline {
     }
     post {
       always {
-        echo 'I am doing post action - inputvar is $INPUT_VAR'
-        echo 'SSH Creds are $SSH_CREDS'
+        sh 'I am doing post action - inputvar is $INPUT_VAR'
+        sh 'SSH Creds are SSH_CREDS'
 
     }
     }
