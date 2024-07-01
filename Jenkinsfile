@@ -30,6 +30,9 @@ pipeline {
                     when {
                         branch 'production'
                     }
+                    steps {
+                        echo 'Deploying'
+                    }
         }
 
     }
