@@ -8,7 +8,7 @@
             <configVersion>2</configVersion>
             <userRemoteConfigs>
                 <hudson.plugins.git.UserRemoteConfig>
-                    <url>https://github.com/narasimhavrm/devops1.git//{{ item}}</url>
+                    <url>https://github.com/narasimhavrm/{{item}}.git</url>
                 </hudson.plugins.git.UserRemoteConfig>
             </userRemoteConfigs>
             <branches>

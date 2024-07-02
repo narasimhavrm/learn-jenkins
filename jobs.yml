@@ -4,5 +4,10 @@
   vars:
     jobs:
       - roboshop-terraform
+      - cart
+      - catalogue
+      - shipping
+      - user
+      - payment
   roles:
     - jenkins-jobs
