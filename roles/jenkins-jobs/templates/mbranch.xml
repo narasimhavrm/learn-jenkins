@@ -1,0 +1,52 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@783.787.v50539468395f">
+    <actions/>
+    <description></description>
+    <displayName>mb_sample</displayName>
+    <properties>
+        <org.jenkinsci.plugins.workflow.libs.FolderLibraries plugin="pipeline-groovy-lib@727.ve832a_9244dfa_">
+            <libraries>
+                <org.jenkinsci.plugins.workflow.libs.LibraryConfiguration>
+                    <name>Groovy</name>
+                    <retriever class="org.jenkinsci.plugins.workflow.libs.SCMSourceRetriever">
+                        <clone>false</clone>
+                        <scm class="jenkins.plugins.git.GitSCMSource" plugin="git@5.2.2">
+                            <id>a3836246-65b7-4af4-a0c3-01d8060ee16c</id>
+                            <remote>https://github.com/narasimhavrm/{{item}}.git</remote>
+                            <credentialsId></credentialsId>
+                            <traits>
+                                <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
+                            </traits>
+                        </scm>
+                    </retriever>
+                    <implicit>false</implicit>
+                    <allowVersionOverride>true</allowVersionOverride>
+                    <includeInChangesets>true</includeInChangesets>
+                </org.jenkinsci.plugins.workflow.libs.LibraryConfiguration>
+            </libraries>
+        </org.jenkinsci.plugins.workflow.libs.FolderLibraries>
+    </properties>
+    <folderViews class="jenkins.branch.MultiBranchProjectViewHolder" plugin="branch-api@2.1169.va_f810c56e895">
+        <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+    </folderViews>
+    <healthMetrics/>
+    <icon class="jenkins.branch.MetadataActionFolderIcon" plugin="branch-api@2.1169.va_f810c56e895">
+        <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+    </icon>
+    <orphanedItemStrategy class="com.cloudbees.hudson.plugins.folder.computed.DefaultOrphanedItemStrategy" plugin="cloudbees-folder@6.928.v7c780211d66e">
+        <pruneDeadBranches>true</pruneDeadBranches>
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>-1</numToKeep>
+        <abortBuilds>false</abortBuilds>
+    </orphanedItemStrategy>
+    <triggers/>
+    <disabled>false</disabled>
+    <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.1169.va_f810c56e895">
+        <data/>
+        <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+    </sources>
+    <factory class="org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory">
+        <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+        <scriptPath>Jenkinsfile</scriptPath>
+    </factory>
+</org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
