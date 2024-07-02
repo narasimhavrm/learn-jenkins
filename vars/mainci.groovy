@@ -25,15 +25,14 @@ def call () {
             echo 'Security scan'
         }
 
-        stage('Publish Artifact ') {
-            when {
-                expression {
-                    env.TAG_NAME ==~ ".*"
+
+            if(env.TAG_NAME ==~ ".*") {
+                stage('Publish Artifact ') {
+                    echo 'Publish Artifact'
+//                    sh 'env'
+
                 }
             }
-            echo 'Publish Artifact'
-            sh 'env'
-        }
 
     }
 }
