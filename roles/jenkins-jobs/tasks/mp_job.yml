@@ -8,5 +8,5 @@
     config: "{{ lookup('file', '/tmp/mbranch.xml') }}"
     name: "{{item}}"
     password: admin123
-    url: http://172.31.95.101:8080
+    url: http://172.31.84.246:8080
     user: admin

@@ -10,35 +10,35 @@ pipeline {
 
 //     triggers { pollSCM('H/2 * * * *') }
 
-    parameters {
-      string(name: 'INPUT_VAR', defaultValue: 'IaminputVAR', description: 'Just input variable')
-    }
+//     parameters {
+//       string(name: 'INPUT_VAR', defaultValue: 'IaminputVAR', description: 'Just input variable')
+//     }
 
     stages {
         stage('Hello-01') {
-            input {
-              message "Should we continue?"
-              ok "Yes, we should."
-            }
+//             input {
+//               message "Should we continue?"
+//               ok "Yes, we should."
+//             }
             steps {
                 echo 'Hello 001'
-                sh 'echo input var is $INPUT_VAR'
-                sh 'env'
+//                 sh 'echo input var is $INPUT_VAR'
+//                 sh 'env'
             }
         }
-        stage('Example Deploy') {
-                    when {
-                        branch 'production'
-                    }
-                    steps {
-                        echo 'Deploying'
-                    }
-        }
+//         stage('Example Deploy') {
+//                     when {
+//                         branch 'production'
+//                     }
+//                     steps {
+//                         echo 'Deploying'
+//                     }
+//         }
 
     }
     post {
       always {
-        sh 'echo Post action $INPUT_VAR'
+        sh 'echo Post action '
     }
     }
 }
