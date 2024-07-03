@@ -6,8 +6,10 @@ def call () {
             sh 'env'
             if(env.TAG_NAME ==~ ".*"){
                 env.gitbrname = "refs/tags/{env.TAG_NAME}"
+                sh 'echo inside tag name'
             } else {
                 env.gitbrname = "${env.BRANCH_NAME}"
+                sh 'echo inside branch '
             }
             checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: "https://github.com/narasimhavrm/{env.component}.git" ]], branches: [[name: gitbrname]], poll: false]
         }
