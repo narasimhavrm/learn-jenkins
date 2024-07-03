@@ -2,13 +2,14 @@ def call () {
     node('workstation') {
 
         stage('Code checkout' ) {
-            sh 'find . | grep "^./" | xargs rm -rf '
+            sh 'find . | grep "^./" | xargs rm -rf'
+            sh 'env'
             if(env.TAG_NAME ==~ ".*"){
                 env.gitbrname = "refs/tags/{env.TAG_NAME}"
             } else {
                 env.gitbrname = "${env.BRANCH_NAME}"
             }
-            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: "https://github.com/narasimhavrm/cart.git" ]], branches: [[name: gitbrname]], poll: false]
+            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: "https://github.com/narasimhavrm/{env.component}.git" ]], branches: [[name: gitbrname]], poll: false]
         }
 
         if (env.cibuild == "nodejs") {
