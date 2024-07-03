@@ -8,7 +8,7 @@ def call () {
             } else {
                 env.gitbrname = "${env.BRANCH_NAME}"
             }
-            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: "https://github.com/narasimhavrm/env.{component}" ]], branches: [[name: gitbrname]], poll: false]
+            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: "https://github.com/narasimhavrm/cart.git" ]], branches: [[name: gitbrname]], poll: false]
         }
 
         if (env.cibuild == "nodejs") {
@@ -44,7 +44,7 @@ def call () {
                     sh 'echo ${TAG_NAME} > VERSION'
                     sh 'zip -r ${component}-${TAG_NAME}.zip *'
 
-                    sh 'curl -v -u admin:admin123 --upload-file ${component}-${TAG_NAME}.zip http://nexusipaddress:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+                    sh 'curl -v -u admin:admin123 --upload-file ${component}-${TAG_NAME}.zip http://44.202.20.244:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
 
 //                    echo 'Publish Artifact'
