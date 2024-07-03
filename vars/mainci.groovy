@@ -47,7 +47,7 @@ def call () {
                     sh 'echo ${TAG_NAME} > VERSION'
                     sh 'zip -r ${component}-${TAG_NAME}.zip *'
 
-                    sh 'curl -v -u admin:admin123 --upload-file ${component}-${TAG_NAME}.zip http://44.202.20.244:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+                    sh 'curl -v -u admin:admin123 --upload-file ${component}-${TAG_NAME}.zip http://3.86.233.151:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
 
 //                    echo 'Publish Artifact'
