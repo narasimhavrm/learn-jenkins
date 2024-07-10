@@ -40,6 +40,10 @@ def call () {
             echo 'Security scan'
         }
 
+        stage ('Docker file') {
+            sh 'docker build -t ${component} .'
+        }
+
 
             if(env.TAG_NAME ==~ ".*") {
                 stage('Publish Artifact ') {
