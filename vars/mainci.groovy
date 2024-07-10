@@ -69,6 +69,7 @@ def call () {
 
         if(env.TAG_NAME ==~ ".*") {
             stage('Publish Artifact ') {
+                echo 'inside publish artifact'
                 sh 'docker tag ${component}:latest 079329262703.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
                 sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 079329262703.dkr.ecr.us-east-1.amazonaws.com'
                 sh 'docker push 079329262703.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
