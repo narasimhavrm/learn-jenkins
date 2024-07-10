@@ -1,9 +1,4 @@
 def call () {
-    node('docker'){
-      stage ('docker build'){
-          sh 'docker build -t ${component} .'
-      }
-      }
 
     node('workstation') {
 
@@ -46,13 +41,12 @@ def call () {
             echo 'Security scan'
         }
 
-//        stage ('Docker file') {
-//            echo 'inside docker file'
-//            agent {
-//                label 'docker'
-//            }
-//            sh 'docker build -t ${component} .'
-//        }
+        stage ('Docker file') {
+            echo 'inside docker file'
+            node('docker'){
+          sh 'docker build -t ${component} .'
+      }
+      }
 
 
             if(env.TAG_NAME ==~ ".*") {
