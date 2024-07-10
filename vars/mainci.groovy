@@ -1,6 +1,6 @@
 def call () {
 
-    node('workstation') {
+    node('docker') {
 
         stage('Code checkout' ) {
             sh 'find . | grep "^./" | xargs rm -rf'
@@ -43,9 +43,8 @@ def call () {
 
         stage ('Docker file') {
             echo 'inside docker file'
-            node('docker'){
           sh 'docker build -t ${component} .'
-      }
+
       }
 
 
