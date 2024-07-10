@@ -55,17 +55,24 @@ def call () {
 //                        sh 'mv target/${component}-1.0.jar ${component.jar}'
 //                        sh 'rm -rf pom.xml src target'
 //                    }
-                    sh 'rm -rf Jenkinsfile'
-                    sh 'echo ${TAG_NAME} > VERSION'
-                    sh 'zip -r ${component}-${TAG_NAME}.zip *'
-
-                    sh 'curl -v -u admin:admin123 --upload-file ${component}-${TAG_NAME}.zip http://172.31.86.240:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+//                    sh 'rm -rf Jenkinsfile'
+//                    sh 'echo ${TAG_NAME} > VERSION'
+//                    sh 'zip -r ${component}-${TAG_NAME}.zip *'
+//
+//                    sh 'curl -v -u admin:admin123 --upload-file ${component}-${TAG_NAME}.zip http://172.31.86.240:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
 
 //                    echo 'Publish Artifact'
 //                    sh 'env'
 
                 }
+            }
+
+        if(env.TAG_NAME ==~ ".*") {
+            stage('Publish Artifact ') {
+                sh 'docker tag ${component}:latest 079329262703.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 079329262703.dkr.ecr.us-east-1.amazonaws.com'
+                sh 'docker push 079329262703.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
             }
 
     }
