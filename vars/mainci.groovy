@@ -41,6 +41,7 @@ def call () {
         }
 
         stage ('Docker file') {
+            echo 'inside docker file'
             agent {
                 label 'docker'
             }
