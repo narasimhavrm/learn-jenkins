@@ -41,6 +41,9 @@ def call () {
         }
 
         stage ('Docker file') {
+            agent {
+                label 'docker'
+            }
             sh 'docker build -t ${component} .'
         }
 
